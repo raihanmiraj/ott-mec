@@ -1,12 +1,12 @@
 
-"use client"
+// "use client"
 import imglogo from '@/assets/logo/logo.png'
 import Image from 'next/image'
 const Navbar = ({sidebarExtend,setSidebarExtend}) => {
   return (
     <>
       <div className=" fixed z-10 bg-[#ffff] w-[100%]">
-  <nav className="flex py-5 items-center space-x-2 lg:space-x-20 xl:space-x-64">
+  <nav className="flex py-1 items-center space-x-2 lg:space-x-20 xl:space-x-64">
     <div className="flex items-center space-x-4 ml-3 -mt-4 pl-2">
       <button className="z-[99999]" onClick={()=>setSidebarExtend(sidebarExtend?false:true)}  >
         <svg
