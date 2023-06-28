@@ -1,17 +1,22 @@
+ 
 import Image from 'next/image'
 import json from './test.json'
 import VideoCard from '@/Component/VideoCard/VideoCard';
  import timeSince  from '@/utils/date'
-export default function Home() {
-  console.log(json)
+ 
+const Home = async ()=> {
+  // const data = await fetch("https://jsonplaceholder.typicode.com/todos/");
+  // const test = await data.json();
+  // console.log(test)
   const categoryVideos = json.items;
-  const sidebarExtend = false;
+  
   var aDay = 24 * 60 * 60 * 1000;
+
   return (
     <>
-    {/* <Sidebar /> */}
-    <div className={`sm:hidden overlayEffect ${sidebarExtend ? "block" : "hidden"}`}></div>
-    <div className={`pl-0  ${sidebarExtend ? "sm:pl-[180px]" : "sm:pl-[70px]"} feedGrid grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-x-[4%] pt-20 mx-3 sm:ml-4 md:pr-[28px] lg:pr-14 gap-y-6 max-w-[100%] bg-contain `}>
+ 
+ {/* <div className={`sm:hidden fixed w-full h-full top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 z-1 cursor-pointer overlayEffect ` }></div> */}
+ {/* {JSON.stringify(test)} */}
 
       {
         categoryVideos.map((e, index) => {
@@ -22,9 +27,11 @@ export default function Home() {
           )
         })
       }
-    </div>
+        
   </>
   )
 }
+
+export default Home
 
  

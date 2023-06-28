@@ -3,7 +3,7 @@ import Image from 'next/image'
 const VideoCard=(props)=> {
  
   return (
-    <div style={{ width: props.width, display: props.display }} className='w-full   relative cursor-pointer bg-red-200'>
+    <div style={{ width: props.width, display: props.display }} className='w-full   relative cursor-pointer '>
       {/* <img url={`/watch/${props.videoId}`} className='w-full rounded-[12px]' src={props.thumbnail} /> */}
       <div  className="rounded-lg !important overflow-hidden">
       <Image
