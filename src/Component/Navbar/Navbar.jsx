@@ -2,18 +2,22 @@
 "use client"
 import imglogo from '@/assets/logo/logo.png'
 // import AuthContext from '@/context/AuthContext';
-import { AuthContextTest } from '@/provider/AuthContextProvider';
+// import { AuthContextTest } from '@/provider/AuthContextProvider';
 // import UseAuth from '@/hooks/useAuth';
 import Image from 'next/image'
 import Link from 'next/link';
-import { useContext } from 'react';
+// import { useContext } from 'react';
 const Navbar =  ({sidebarExtend,setSidebarExtend}) => {
 //   const {user,logOut} = UseAuth()
 // if(user){
 //   const {uid, displayName,photoURL} = user;
 //   console.log(displayName)
 // }
-const {user,logOut} = useContext(AuthContextTest)
+// const {user,logOut} = useContext(AuthContextTest)
+const user = ""
+const logOut = ()=>{
+  
+}
   return (
     <>
       <div className=" fixed z-10 bg-[#ffff] w-[100%]">
