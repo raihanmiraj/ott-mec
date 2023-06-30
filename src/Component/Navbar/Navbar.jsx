@@ -1,5 +1,5 @@
 
-// "use client"
+"use client"
 import imglogo from '@/assets/logo/logo.png'
 import Image from 'next/image'
 const Navbar = ({sidebarExtend,setSidebarExtend}) => {
