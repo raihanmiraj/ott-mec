@@ -1,4 +1,4 @@
-import Providers from '@/provider'
+// import Providers from '@/provider'
 import './globals.css'
 import { Inter } from 'next/font/google'
 // import AuthContextProvider from '@/provider/AuthContextProvider'

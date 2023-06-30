@@ -1,9 +1,13 @@
-"use client"
-  import AuthContext from '@/context/AuthContext';
-import React, { useContext } from 'react';
+// "use client"
+  // import AuthContext from '@/context/AuthContext';
+// import React, { useContext } from 'react';
 
 const loginPage = () => {
-      const {user, googleLogin} = useContext(AuthContext);
+      // const {user, googleLogin} = useContext(AuthContext);
+      const user = "";
+      const googleLogin = ()=>{
+
+      }
     return (
         <section className="h-screen w-full bg-black text-white flex justify-center items-center px-4 md:px-0">
         <div className="flex flex-col gap-5">
