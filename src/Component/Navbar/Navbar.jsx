@@ -99,7 +99,7 @@ const logOut = ()=>{
           </a>
         </li>
         <li><a>Settings</a></li>
-        <li><button type='button' onClick={user && logOut}>Logout</button></li>
+        <li><button type='button'  >Logout</button></li>
       </ul>
     </div>
    </>:

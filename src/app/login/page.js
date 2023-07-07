@@ -34,7 +34,7 @@ const loginPage = () => {
             <a href="#">Forgot Password?</a>
           </div>
           <div className="grid grid-cols-2 gap-4 text-black text-[10px] md:text-sm">
-          <button onClick={googleLogin}  className="flex items-center bg-white  px-2 md:px-8 py-1 md:py-3 rounded-lg font-semibold">
+          <button    className="flex items-center bg-white  px-2 md:px-8 py-1 md:py-3 rounded-lg font-semibold">
         <span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
