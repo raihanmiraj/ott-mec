@@ -1,12 +1,28 @@
 
 "use client"
 import imglogo from '@/assets/logo/logo.png'
+// import AuthContext from '@/context/AuthContext';
+// import { AuthContextTest } from '@/provider/AuthContextProvider';
+// import UseAuth from '@/hooks/useAuth';
 import Image from 'next/image'
-const Navbar = ({sidebarExtend,setSidebarExtend}) => {
+import Link from 'next/link';
+// import { useContext } from 'react';
+const Navbar =  ({sidebarExtend,setSidebarExtend}) => {
+//   const {user,logOut} = UseAuth()
+// if(user){
+//   const {uid, displayName,photoURL} = user;
+//   console.log(displayName)
+// }
+// const {user,logOut} = useContext(AuthContextTest)
+const user = ""
+const logOut = ()=>{
+  
+}
   return (
     <>
       <div className=" fixed z-10 bg-[#ffff] w-[100%]">
-  <nav className="flex py-1 items-center space-x-2 lg:space-x-20 xl:space-x-64">
+        {/* {displayName} */}
+  <nav className="flex py-1 items-center justify-between">
     <div className="flex items-center space-x-4 ml-3 -mt-4 pl-2">
       <button className="z-[99999]" onClick={()=>setSidebarExtend(sidebarExtend?false:true)}  >
         <svg
@@ -25,11 +41,6 @@ const Navbar = ({sidebarExtend,setSidebarExtend}) => {
         </svg>
       </button>
       <a href="/">
-        {/* <img
-          className="w-32"
-          src="https://youtubeclone-farhan.netlify.app/static/media/ytLogo.4f4677b1b0aa581fee6e.png"
-          alt=""
-        /> */}
           <Image
       src={imglogo}
       width={128}
@@ -72,6 +83,30 @@ const Navbar = ({sidebarExtend,setSidebarExtend}) => {
         </button>
       </div>
     </form>
+   {user ? <>
+   
+    <div className="dropdown dropdown-end pr-0 md:pr-12">
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img src={user && user.photoURL} />
+        </div>
+      </label>
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li>
+          <a className="justify-between">
+            Profile
+            <span className="badge">New</span>
+          </a>
+        </li>
+        <li><a>Settings</a></li>
+        <li><button type='button' onClick={user && logOut}>Logout</button></li>
+      </ul>
+    </div>
+   </>:
+   <div className='pr-0 md:pr-12'>
+   <Link href="/login" className='px-5 py-2 rounded-lg bg-red-600 text-white text-sm font-semibold'>Login</Link>
+   </div>
+   }
   </nav>
 </div>
 
