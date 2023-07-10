@@ -3,20 +3,20 @@
 import React from 'react';
 import {GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth'; 
 import app from '@/firebase/firebase.config';
+import { useRouter, useSearchParams } from "next/navigation";
 const auth = getAuth(app);
 const googleAuthProvider = new GoogleAuthProvider();
- 
+
 const LoginWithGoogle = () => {
-     
+  const { replace, refresh } = useRouter();
    const loginWithGoogle = ()=>{
-   
         signInWithPopup(auth, googleAuthProvider)
         .then((result) => { 
           const credential = GoogleAuthProvider.credentialFromResult(result);
           const token = credential.accessToken;
           const user = result.user;
           console.log(user)
-         
+          replace('/')
 
         }).catch((error) => { 
           console.log(error)
