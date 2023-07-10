@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VideosTableRow = ({e}) => {
+const VideosTableRow = ({e,approveBtnHanlder, deleteButtonHandler, denyBtnHanlder}) => {
     return (
         <>
           <tr >

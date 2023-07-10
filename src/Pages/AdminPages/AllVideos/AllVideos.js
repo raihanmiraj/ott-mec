@@ -65,7 +65,7 @@ const AllVideos = ({allvideos}) => {
      { !loading && 
         renderVideos.map(e=>(
 <>
-<VideosTableRow key={e._id} e={e}/>
+<VideosTableRow key={e._id} e={e} approveBtnHanlder={approveBtnHanlder} deleteButtonHandler={deleteButtonHandler} denyBtnHanlder={denyBtnHanlder}/>
 </>
         ))
      }
