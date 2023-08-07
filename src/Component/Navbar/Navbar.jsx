@@ -33,7 +33,7 @@ const Navbar =  ({sidebarExtend,setSidebarExtend}) => {
           />
         </svg>
       </button>
-      <a href="/">
+      <Link href="/">
           <Image
       src={imglogo}
       width={128}
@@ -42,7 +42,7 @@ const Navbar =  ({sidebarExtend,setSidebarExtend}) => {
       alt="Picture of the author"
     
     />
-      </a>
+      </Link>
     </div>
     <form className="-mt-3">
       <div className="relative w-[170px] sm:w-[420px] ">

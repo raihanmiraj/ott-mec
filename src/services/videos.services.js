@@ -15,6 +15,12 @@ export const insertVideoInDb = async (data) => {
 };
 
 
+export const getVideosFromDbByCategory = async (eventname) => {
+  const db = await DbConnect();
+  const categoriesCollection = db.collection("videos");
+  return categoriesCollection.find({eventname:eventname}).toArray();
+};
+
 export const getAllEvents = async () => {
   const db = await DbConnect();
   const videosCollection = db.collection("videos");
