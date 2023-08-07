@@ -1,10 +1,11 @@
 import Image from 'next/image'
+import Link from 'next/link'
  
 const VideoCard=(props)=> {
  
   return (
-    <div style={{ width: props.width, display: props.display }} className='w-full   relative cursor-pointer '>
-      {/* <img url={`/watch/${props.videoId}`} className='w-full rounded-[12px]' src={props.thumbnail} /> */}
+  <Link href={`/video/${props.videoId}`}>
+    <div style={{ width: props.width, display: props.display }} className='w-full   relative cursor-pointer '> 
       <div  className="rounded-lg !important overflow-hidden">
       <Image
       src={props.thumbnail}
@@ -27,7 +28,7 @@ const VideoCard=(props)=> {
         </div>
       </div>
       </div>
-    </div>
+    </div></Link>
   )
 }
 
