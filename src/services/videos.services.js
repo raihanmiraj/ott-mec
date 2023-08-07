@@ -1,4 +1,3 @@
-import "server-only";
 import DbConnect from "./DbConnect";
 import { ObjectId } from "mongodb";
 
