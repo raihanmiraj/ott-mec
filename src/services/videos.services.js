@@ -1,5 +1,6 @@
 import "server-only";
 import DbConnect from "./DbConnect";
+import { ObjectId } from "mongodb";
 
 export const getVideosFromDb = async () => {
   const db = await DbConnect();
@@ -32,5 +33,20 @@ export const getAllDepartment = async () => {
   const uniqueEventNames = [...new Set(result.map(obj => obj.department))];
  
   return uniqueEventNames;
+
+};
+export const approvedaVideoById = async (id) => {
+  const db = await DbConnect();
+  const videosCollection = db.collection("videos"); 
+  const filter = { _id: new ObjectId(id) };
+  const updateDoc = {
+    $set: {
+      status:'approved'
+    },
+  };
+
+  const result = await videosCollection.updateOne(filter, updateDoc);
+ 
+  return result;
 
 };
