@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import timeSince from '@/utils/date';
 import VideosTableRow from '@/Component/AdminTemplate/VideosTableRow/VideosTableRow';
-
+import axios from 'axios'
 const AllVideos = ({ allvideos }) => {
   var aDay = 24 * 60 * 60 * 1000;
   const [loading, setLoading] = useState(true)
@@ -19,7 +19,15 @@ const AllVideos = ({ allvideos }) => {
     console.log(id)
     const data = renderVideos.filter(e => e._id !== id);
     SetRenderVideos(data)
-
+    axios.post('/api/admin/video/deleted', {
+      "id" :id
+       })
+      .then(response=>{
+        console.log(response.data)
+      })
+      .catch(err=>{
+        console.log(err)
+      })
   }
 
 
@@ -32,6 +40,17 @@ const AllVideos = ({ allvideos }) => {
     });
     console.log(updatedData)
     SetRenderVideos(updatedData)
+    axios.post('/api/admin/video/approved', {
+      "id" :e 
+      
+      })
+      .then(response=>{
+        console.log(response.data)
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+    
 
 
   }
@@ -44,7 +63,16 @@ const AllVideos = ({ allvideos }) => {
     });
     console.log(updatedData)
     SetRenderVideos(updatedData)
-
+    axios.post('/api/admin/video/denied', {
+      "id" :e 
+       })
+      .then(response=>{
+        console.log(response.data)
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+    
   }
   return (
     <>

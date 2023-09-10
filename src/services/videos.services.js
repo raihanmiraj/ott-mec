@@ -7,6 +7,12 @@ export const getVideosFromDb = async () => {
   return categoriesCollection.find({}).toArray();
 };
 
+export const getVideosApprovedFromDb = async () => {
+  const db = await DbConnect();
+  const categoriesCollection = db.collection("videos");
+  return categoriesCollection.find({status:'approved'}).toArray();
+};
+
 export const insertVideoInDb = async (data) => {
   const db = await DbConnect();
   const categoriesCollection = db.collection("videos");
@@ -52,7 +58,7 @@ export const getAllDepartment = async () => {
  
   return uniqueEventNames;
 
-};
+}; 
 export const approvedaVideoById = async (id) => {
   const db = await DbConnect();
   const videosCollection = db.collection("videos"); 
@@ -66,5 +72,35 @@ export const approvedaVideoById = async (id) => {
   const result = await videosCollection.updateOne(filter, updateDoc);
  
   return result;
+
+};
+
+export const deniedaVideoById = async (id) => {
+  const db = await DbConnect();
+  const videosCollection = db.collection("videos"); 
+  const filter = { _id: new ObjectId(id) };
+  const updateDoc = {
+    $set: {
+      status:'denied'
+    },
+  };
+
+  const result = await videosCollection.updateOne(filter, updateDoc);
+ 
+  return result;
+
+};
+
+
+export const deleteVideoById = async (id) => {
+  const db = await DbConnect();
+  const videosCollection = db.collection("videos"); 
+ 
+  let query = {
+    _id: new ObjectId(id)
+  }
+
+  let deleteData = await videosCollection.deleteOne(query);
+   return deleteData;
 
 };

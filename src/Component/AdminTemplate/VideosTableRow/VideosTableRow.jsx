@@ -4,7 +4,7 @@ const VideosTableRow = ({e,approveBtnHanlder, deleteButtonHandler, denyBtnHanlde
     return (
         <>
           <tr >
-        
+         
         <td>
           <div className="flex items-center space-x-3">
             <div className="avatar">

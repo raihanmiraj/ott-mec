@@ -6,10 +6,15 @@ import HomepageLayout from '@/Component/HomepageLayout/HomepageLayout';
 import VideoCard from '@/Component/VideoCard/VideoCard';
 import Getallevents from '@/utils/getallevents';
 import Link from 'next/link';
-const getYouTubeVideoId=(url) => {
-    const match = url.match(/[?&]v=([^&#]+)/) || url.match(/youtu\.be\/([^?]+)/);
-  return match && match[1] ? match[1] : null;
+const getYouTubeVideoId = (url) => {
+  try {
+    const match = url.match(/[?&]v=([^&#]+)|youtu\.be\/([^?]+)/);
+    return match ? (match[1] || match[2]) : null;
+  } catch (e) {
+    console.error('Error in getYouTubeVideoId:', e);
+    return null;
   }
+};
 const VideoPages = async ({id}) => {
     const eventname = await Getallevents();
     const data = await getVideosFromDbById(id)
@@ -25,7 +30,10 @@ const VideoPages = async ({id}) => {
  </div>
  <div>
  
+
+<div className='flex justify-center items-center mt-8'>
 <iframe width="716" height="403" src={`https://www.youtube.com/embed/${getYouTubeVideoId(data.videourl)}`} title="Warfaze - Hariye Tomake (Lyric Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
  </div>
      {/* {JSON.stringify(data)} */}
           {/* <VideoCard key={index} title={data.title} thumbnail={data.thumbnails} on={timeSince(new Date(Date.parse(e.publishedAt) - aDay))} channel={data.eventname} channelId={data.department} videoId={data._id} /> */}

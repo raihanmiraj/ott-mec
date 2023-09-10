@@ -1,12 +1,12 @@
 import timeSince from '@/utils/date';
-  import getallvideos from '@/utils/getallvideos';
+  import getallapprovedvideos from '@/utils/getallapprovedvideos';
 import React from 'react'; 
 import HomepageLayout from '@/Component/HomepageLayout/HomepageLayout';
 import VideoCard from '@/Component/VideoCard/VideoCard';
 import Getallevents from '@/utils/getallevents';
 import Link from 'next/link';
 const HomePage = async () => {
-     const categoryVideos = await getallvideos();
+     const categoryVideos = await getallapprovedvideos();
      const eventname = await Getallevents();
     var aDay = 24 * 60 * 60 * 1000;
     return (
