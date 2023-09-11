@@ -21,7 +21,7 @@ replace(`/search/${e.target.search.value}`)
   setSidebarExtend(true)
   return (
     <>  
-      <div className=" fixed z-10 bg-[#ffff] w-[100%]">
+      <div className=" fixed z-10 bg-[#ffff] w-[100%] mt-5">
         {/* {displayName} */}
   <nav className="flex py-1 items-center justify-between">
     <div className="flex items-center space-x-4 ml-3 -mt-4 pl-2">
