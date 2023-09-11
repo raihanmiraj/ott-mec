@@ -2,7 +2,7 @@
 "use client"
 import { AuthContext } from '@/Provider/AuthContextProvider';
 import imglogo from '@/assets/logo/logo.png'
-import NextNProgress from 'nextjs-progressbar';
+ 
  
 import Image from 'next/image'
 import Link from 'next/link';
@@ -20,7 +20,7 @@ replace(`/search/${e.target.search.value}`)
  
   setSidebarExtend(true)
   return (
-    <> <NextNProgress options={{ easing: 'ease', speed: 500 }}/>
+    <>  
       <div className=" fixed z-10 bg-[#ffff] w-[100%]">
         {/* {displayName} */}
   <nav className="flex py-1 items-center justify-between">
