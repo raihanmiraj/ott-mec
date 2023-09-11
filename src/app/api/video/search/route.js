@@ -1,5 +1,4 @@
-getVideoSearchFromDb
-
+ 
 
 import { getVideosApprovedFromDb } from '@/services/videos.services';
 import React from 'react';
