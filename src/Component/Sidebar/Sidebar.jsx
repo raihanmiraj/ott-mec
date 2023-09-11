@@ -1,19 +1,32 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import NavLink from '../NavLink/NavLink';
 
 const Sidebar = ({sidebarExtend,setSidebarExtend}) => {
+ const [navActive, setNavActive] = useState('home')
+ const router = useRouter()
+ 
+ 
+ console.log(router.asPath  )
   return (
     <>
     <Navbar setSidebarExtend={setSidebarExtend} sidebarExtend={sidebarExtend}/>
   <>
   <div className="absolute w-[10%] bg-[#fff] top-20 hidden sm:block">
     <div className="flex flex-col gap-y-6 fixed z-20">
-      <Link href="/">
+    <NavLink
+                
+                href={"/"}
+                activeClassName="bg-gray-100 rounded-lg"
+                exact={"/"}
+               
+              >
         <div
-          className="flex items-center gap-x-4 ml-2 px-2 py-2"
-          style={{ backgroundColor: "rgb(242, 242, 242)", borderRadius: 10 }}
+          className={`flex items-center gap-x-4 ml-2 px-2 py-2 ${router.pathname=='home' && 'bg-gray-100 rounded-lg'}`}
+        
         >
           <svg
             stroke="currentColor"
@@ -29,11 +42,18 @@ const Sidebar = ({sidebarExtend,setSidebarExtend}) => {
           </svg>
           <h4 className={`text-md font-semibold tracking-wide ${sidebarExtend?"":"hidden"}`}>Home</h4>
         </div>
-      </Link>
-      <Link href="/">
-        <div
-          className="flex items-center gap-x-4 ml-2 px-2 py-2"
-          style={{ backgroundColor: "rgb(255, 255, 255)", borderRadius: 0 }}
+      </NavLink>
+
+
+      <NavLink
+                
+                href={"/dept/eee"}
+                activeClassName="bg-gray-100 rounded-lg"
+               
+              >
+              <div
+          className={`flex items-center gap-x-4 ml-2 px-2 py-2 ${navActive=='eee' && 'bg-gray-100 rounded-lg'}`}
+         
         >
            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
@@ -41,12 +61,21 @@ const Sidebar = ({sidebarExtend,setSidebarExtend}) => {
 
           <h4 className={`text-md font-semibold tracking-wide ${sidebarExtend?"":"hidden"}`}>EEE</h4>
         </div>
-        </Link>
+              </NavLink>
+
+
+
+
+      
      
-        <Link href="/">
+              <NavLink
+                
+                href={"/dept/cse"}
+                activeClassName="bg-gray-100 rounded-lg"
+               
+              >
         <div
-          className="flex items-center gap-x-4 ml-2 px-2 py-2"
-          style={{ backgroundColor: "rgb(255, 255, 255)", borderRadius: 0 }}
+         className={`flex items-center gap-x-4 ml-2 px-2 py-2 ${navActive=='cse' && 'bg-gray-100 rounded-lg'}`}
         >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
@@ -54,11 +83,15 @@ const Sidebar = ({sidebarExtend,setSidebarExtend}) => {
 
           <h4 className={`text-md font-semibold tracking-wide ${sidebarExtend?"":"hidden"}`}>CSE</h4>
         </div>
-        </Link>
-        <Link href="/">
+        </NavLink>
+        <NavLink
+                
+                href={"/dept/civil"}
+                activeClassName="bg-gray-100 rounded-lg"
+               
+              >
         <div
-          className="flex items-center gap-x-4 ml-2 px-2 py-2"
-          style={{ backgroundColor: "rgb(255, 255, 255)", borderRadius: 0 }}
+         className={`flex items-center gap-x-4 ml-2 px-2 py-2 ${navActive=='civil' && 'bg-gray-100 rounded-lg'}`}
         >
            <svg
             stroke="currentColor"
@@ -79,7 +112,7 @@ const Sidebar = ({sidebarExtend,setSidebarExtend}) => {
           </svg>
           <h4 className={`text-md font-semibold tracking-wide ${sidebarExtend?"":"hidden"}`}>Civil</h4>
         </div>
-        </Link>
+        </NavLink>
     
     </div>
   </div>

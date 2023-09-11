@@ -12,6 +12,21 @@ export const getVideosApprovedFromDb = async () => {
   const categoriesCollection = db.collection("videos");
   return categoriesCollection.find({status:'approved'}).toArray();
 };
+export const getVideoSearchFromDb = async (data) => {
+  try {
+    const db = await DbConnect(); // Make sure DbConnect returns a valid database connection
+    const categoriesCollection = db.collection("videos");
+    
+    const cursor = categoriesCollection.find({
+      title: { $regex: data, $options: "i" }
+    });
+
+    const result = await cursor.toArray();
+    return result;
+  } catch (error) {
+    throw new Error(`Error in getVideoSearchFromDb: ${error.message}`);
+  }
+};
 
 export const insertVideoInDb = async (data) => {
   const db = await DbConnect();
@@ -25,6 +40,11 @@ export const getVideosFromDbByCategory = async (eventname) => {
   const db = await DbConnect();
   const categoriesCollection = db.collection("videos");
   return categoriesCollection.find({eventname:eventname}).toArray();
+};
+export const getVideosFromDbByDept = async (department) => {
+  const db = await DbConnect();
+  const categoriesCollection = db.collection("videos");
+  return categoriesCollection.find({department:department.toUpperCase()}).toArray();
 };
 
 export const getVideosFromDbById = async (id) => {

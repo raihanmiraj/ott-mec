@@ -2,17 +2,25 @@
 "use client"
 import { AuthContext } from '@/Provider/AuthContextProvider';
 import imglogo from '@/assets/logo/logo.png'
- 
+import NextNProgress from 'nextjs-progressbar';
  
 import Image from 'next/image'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
  import { useContext } from 'react';
 const Navbar =  ({sidebarExtend,setSidebarExtend}) => {
  
   const {user,logOut} = useContext(AuthContext)
+  const { replace, refresh } = useRouter();
+  const searchHere = (e)=>{
+    e.preventDefault();
  
+replace(`/search/${e.target.search.value}`)
+  }
+ 
+  setSidebarExtend(true)
   return (
-    <>
+    <> <NextNProgress options={{ easing: 'ease', speed: 500 }}/>
       <div className=" fixed z-10 bg-[#ffff] w-[100%]">
         {/* {displayName} */}
   <nav className="flex py-1 items-center justify-between">
@@ -44,7 +52,7 @@ const Navbar =  ({sidebarExtend,setSidebarExtend}) => {
     />
       </Link>
     </div>
-    <form className="-mt-3">
+    <form  onSubmit={searchHere} className="-mt-3">
       <div className="relative w-[170px] sm:w-[420px] ">
         <input
           type="search"
@@ -56,7 +64,7 @@ const Navbar =  ({sidebarExtend,setSidebarExtend}) => {
         />
         <button
           type="submit"
-          className="text-white absolute right-0 bottom-0 top-0 font-medium text-sm px-4 py-2 bg-[#f8f8f8] border-[1px] border-[#cccccc]"
+          className="text-white absolute right-0 bottom-0 top-0 font-medium text-sm px-4 py-2 bg-[#f8f8f8] border-[1px] border-[#cccccc] rounded-r-lg"
         >
        
           <svg
